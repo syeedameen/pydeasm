@@ -314,10 +314,7 @@ opcode = {
 
 
 def main():
-    for i in opcode:
-        for j in i:
-            print(opcode[i][j])
+    pass 
 
-    
-
-main()
+if __name__ == "__main__":
+    main()
