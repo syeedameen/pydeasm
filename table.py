@@ -311,3 +311,7 @@ opcode = {
         255:('mov',     reg,                        accumulator,7),
         
 }
+
+if __name__ == "__main__":
+    print(" This is python module ")
+    print(" Run pyasm.py file ")
