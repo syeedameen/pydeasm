@@ -313,4 +313,4 @@ opcode = {
 
 if __name__ == "__main__":
     print(" This is python module ")
-    print(" Run pyasm.py file ")
+    print(" Run pydeasm.py file ")
