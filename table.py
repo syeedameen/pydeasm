@@ -26,6 +26,7 @@ i_acc_pl_pc         = 13
 i_dptr              = 14
 Breg                = 15 
 dptr                = 16 
+comp_bit_address    = 17 
 
 
 
@@ -222,7 +223,7 @@ opcode = {
         173:('mov',     reg,                             iram_address,                  5,                              0),
         174:('mov',     reg,                             iram_address,                  6,                              0),
         175:('mov',     reg,                             iram_address,                  7,                              0),
-        176:('anl',     carry,                           bit_address,                   0,                              0),
+        176:('anl',     carry,                           comp_bit_address,                   0,                              0),
         177:('acall',   page_address,                    0,                             0,                              0),
         178:('cpl',     bit_address,                     0,                             0,                              0),
         179:('cpl',     carry,                           0,                             0,                              0),
