@@ -28,13 +28,13 @@ comp_bit_address    = 17
 
 
 
-opcode = {
+opcodes = {
         '00':('nop'),
         '01':('ajmp',page_address),
-        '02':('ljmp',address_16_bit),
+        '02':('ljmp ',address_16_bit),
         '03':('rr a'),
         '04':('inc a'),
-        '05':('inc',iram_address),
+        '05':('inc 0x',iram_address),
         '06':('inc @r0'),
         '07':('inc @r1'),
         '08':('inc r0'),
@@ -45,9 +45,9 @@ opcode = {
         '0D':('inc r5'),
         '0E':('inc r6'),
         '0F':('inc r7'),
-        '10':('jbc 0x',      bit_address,                relative_address),
-        '11':('acall',    page_address                ),
-        '12':('lcall',    address_16_bit              ),
+        '10':('jbc 0x',bit_address,relative_address),
+        '11':('acall',page_address),
+        '12':('lcall 0x',address_16_bit),
         '13':('rrc a'),
         '14':('dec a'),
 
@@ -63,12 +63,12 @@ opcode = {
         '1E':('dec r6'),
 
         '1F':('dec r7'),
-        '20':('jb',       bit_address,                relative_address),
-        '21':('ajmp',     page_address                ),
+        '20':('jb',bit_address,relative_address),
+        '21':('ajmp',page_address),
         '22':('ret'),
         '23':('rl a'),
-        '24':('add a',immediate_data),
-        '25':('add a',iram_address),
+        '24':('add a,#0x',immediate_data),
+        '25':('add a,0x',iram_address),
         '26':('add a,@r0'),
         '27':('add a,@r1'),
         '28':('add a,r0'),
@@ -80,13 +80,13 @@ opcode = {
         '2D':('add a,r5'),
         '2E':('add a,r6'),
         '2F':('add a,r7'),
-        '30':('jnb',      bit_address,                relative_address),
-        '31':('acall',    page_address                ),
-        '32':('reti'                                  ),
+        '30':('jnb 0x',bit_address,relative_address),
+        '31':('acall',page_address),
+        '32':('reti'),
 
         '33':('rcl a'),
-        '34':('addc a,',immediate_data),
-        '35':('addc a,',iram_address),
+        '34':('addc a,#0x',immediate_data),
+        '35':('addc a,0x',iram_address),
         '36':('adcc a,@r0'),
         '37':('adcc a,@r1'),
         '38':('adcc a,r0'),
@@ -98,11 +98,11 @@ opcode = {
         '3D':('adcc a,r5'),
         '3E':('adcc a,r6'),
         '3F':('adcc a,r7'),
-        '40':('jc',relative_address           ),
-        '41':('ajmp',page_address               ),
+        '40':('jc',relative_address),
+        '41':('ajmp',page_address),
         '42':('orl 0x',iram_address,accumulator),
         '43':('orl 0x', iram_address,immediate_data),
-        '44':('orl a,',immediate_data),
+        '44':('orl a,#0x',immediate_data),
         '45':('orl a,',iram_address),
         '46':('orl a,@r0'),
 
@@ -121,7 +121,7 @@ opcode = {
         '52':('anl 0x',iram_address,accumulator),
         '53':('anl 0x',iram_address,immediate_data),
         '54':('anl a,#0x',immediate_data),
-        '55':('anl a,',iram_address),
+        '55':('anl a,0x',iram_address),
         '56':('anl a,@r0'),
         '57':('anl a,@r1'),
         '58':('anl a,r0'),
@@ -137,7 +137,7 @@ opcode = {
         '61':('ajmp',page_address),
         '62':('xrl 0x',iram_address,accumulator),
         '63':('xrl 0x',iram_address,immediate_data),
-        '64':('xrl a,#',immediate_data),
+        '64':('xrl a,#0x',immediate_data),
 
         '65':('xrl a,0x',iram_address),
         '66':('xrl a,@r0'),
@@ -338,3 +338,11 @@ one_byte    = 140       #number of one byte instructions
 two_byte    = 91        #number of two byte instructions
 three_byte  = 24        #number of three byte instructions
 reserved    = 1         #number of reserved instruction 
+
+
+# count = 0
+# for i in opcodes:
+#     if opcode_len[count] == 1 or opcode_len[count] == 3:
+#         count += 1
+#         continue
+#     print(opcodes[i])
