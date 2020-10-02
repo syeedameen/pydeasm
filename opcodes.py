@@ -150,11 +150,12 @@ def convert_info(buffer):               # feed hex line into this function
         memonics(x)                     # transfer one digit to memonics
         for k in l:
             fd.write(str(k))
-        # fd.write("  byte_count:   ")
+        # fd.write('      RECORD TYPE:  ')
+        # fd.write(str(record_type))
+        # fd.write('      BYTE COUNT:    ')
         # fd.write(str(byte_count))
-        # fd.write('  x:      ')
-        # fd.write(x)
-        fd.write('\n')
+        # fd.write(str('  '))
+        fd.write('\n')                  # feed new line character 
 
         i += 1                          # increment digit counter to point next digit  
         byte_count -= 1                 # decrement byte_count by 1
