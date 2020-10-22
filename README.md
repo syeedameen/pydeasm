@@ -7,3 +7,8 @@ MCS-51 is intel design microcontroller series developed in 1980
  - two pass deassembler 
  - arithmatic evaluation 
  - Input (Intel hex flie)
+ 
+### INPUT/OUTPUT:
+- Intel Hex format File 
+- Assembly Language File 
+
